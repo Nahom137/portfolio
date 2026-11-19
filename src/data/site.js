@@ -113,7 +113,7 @@ export const projects = [
     category: 'Education · Opportunity',
     description:
       'A platform designed to help students discover scholarship opportunities and access useful educational guidance.',
-    stack: [], // PLACEHOLDER: add the stack
+    stack: ['React Native', 'Expo', 'Supabase'],
     preview: 'scholarpath',
     live: '',
     repo: '',
