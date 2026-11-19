@@ -32,17 +32,6 @@ and switch to real links as soon as you fill them in.
 Please double-check the stack chips for Payroll360, Hotel Management System and Ethio Textbooks. They were taken
 from your earlier project notes, not from the brief.
 
-## Contact form
-
-The form validates on the client and then delivers in this order:
-
-1. **`VITE_CONTACT_ENDPOINT`** (copy `.env.example` to `.env`): the form POSTs JSON to this URL. Works with a form
-   service such as Formspree, or your own Express route. The browser never talks to a database directly.
-2. **`contact.email`** in `site.js`: opens the visitor's mail app with the message prefilled.
-3. Neither set: shows a clear "placeholder mode" notice instead of pretending the message was sent.
-
-Never put secrets in a `VITE_` variable; they are public in the browser bundle.
-
 ## Structure
 
 ```

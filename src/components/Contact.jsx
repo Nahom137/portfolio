@@ -1,7 +1,6 @@
 import { ArrowUpRight, Mail } from 'lucide-react'
 import Reveal from './ui/Reveal.jsx'
 import Lines from './ui/Lines.jsx'
-import ContactForm from './ContactForm.jsx'
 import { GithubIcon } from './ui/Icons.jsx'
 import { contact, contactPlaceholders } from '../data/site.js'
 
@@ -75,10 +74,6 @@ export default function Contact() {
                 )
               })}
             </ul>
-          </Reveal>
-
-          <Reveal as="div" className="contact__form" delay={120}>
-            <ContactForm />
           </Reveal>
         </div>
       </div>

@@ -18,7 +18,7 @@
   border-top: 1px solid var(--line-strong);
 }
 .contact__channels {
-  grid-column: 1 / 6;
+  grid-column: 1 / 9;
   display: grid;
   gap: 2rem;
   align-content: start;
