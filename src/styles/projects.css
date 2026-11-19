@@ -531,12 +531,11 @@
   text-transform: uppercase;
   color: var(--muted);
 }
-.dialog__ph {
+.dialog__text {
   color: var(--fg-dim);
   font-size: 0.95rem;
-}
-.dialog__ph .ph-tag {
-  margin: 0 0.5rem 0 0;
+  line-height: 1.6;
+  max-width: 60ch;
 }
 .dialog__actions {
   display: flex;

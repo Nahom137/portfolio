@@ -54,12 +54,12 @@ export default function ProjectDialog({ project, onClose }) {
             <h4 className="dialog__label">Stack</h4>
             <StackList stack={project.stack} />
 
-            <h4 className="dialog__label">Case study</h4>
-            <p className="dialog__ph">
-              <span className="ph-tag">Placeholder</span> Problem, approach and outcome write-up to be
-              added.
-            </p>
-
+           {project.caseStudy && (
+  <>
+    <h4 className="dialog__label">Case study</h4>
+    <p className="dialog__text">{project.caseStudy}</p>
+  </>
+)}
             <div className="dialog__actions">
               <LiveAction live={project.live} label={project.liveLabel} />
               <GithubAction repo={project.repo} isPrivate={project.repoPrivate} />
