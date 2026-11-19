@@ -1,0 +1,106 @@
+.beyond {
+  background: var(--bg-raised);
+  border-block: 1px solid var(--line);
+}
+.beyond .sec-head {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.bento__tile {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  min-height: 15rem;
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+  background: var(--bg-raised);
+  transition: background-color 0.5s var(--ease);
+}
+.bento__tile:hover {
+  background: var(--surface);
+}
+.bento__tile--feature {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  align-content: space-between;
+}
+/* Fourth tile spans the lower right so the grid has no empty cells */
+.bento__tile:nth-child(4) {
+  grid-column: 2 / 4;
+}
+.bento__icon {
+  color: var(--accent);
+  transition: transform 0.6s var(--ease);
+}
+.bento__tile:hover .bento__icon {
+  transform: translateY(-4px) rotate(-6deg);
+}
+.bento__tile h3 {
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+.bento__tile--feature h3 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  max-width: 14ch;
+}
+.bento__tile p {
+  max-width: 26rem;
+  color: var(--fg-dim);
+}
+
+.terminal {
+  margin: 1.5rem 0 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1.3vw, 0.9rem);
+  line-height: 1.8;
+  color: var(--fg);
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+.terminal__dim {
+  color: var(--accent);
+}
+.terminal__caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  background: var(--fg);
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bento__tile--feature,
+  .bento__tile:nth-child(4) {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+@media (max-width: 560px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+  .bento__tile {
+    min-height: 0;
+  }
+}

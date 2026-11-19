@@ -1,0 +1,394 @@
+/* ============ Buttons ============ */
+.btn {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--accent-ink);
+  --btn-fill: var(--fg);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 1.4rem;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1px solid var(--btn-bg);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    color 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--btn-fill);
+  transform: translateY(101%);
+  transition: transform 0.5s var(--ease);
+}
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: none;
+}
+.btn:hover,
+.btn:focus-visible {
+  color: var(--bg);
+  border-color: var(--btn-fill);
+}
+.btn__icon {
+  transition: transform 0.45s var(--ease);
+}
+.btn:hover .btn__icon {
+  transform: translate(2px, -2px);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--fg);
+  --btn-fill: var(--accent);
+  border-color: var(--line-strong);
+}
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.btn--sm {
+  padding: 0.8rem 1.05rem;
+  font-size: 0.72rem;
+}
+.btn.is-disabled,
+.btn:disabled {
+  cursor: not-allowed;
+  color: var(--muted);
+  border: 1px dashed var(--line-strong);
+  background: transparent;
+}
+.btn.is-disabled::before,
+.btn:disabled::before {
+  display: none;
+}
+.btn.is-disabled:hover .btn__icon {
+  transform: none;
+}
+
+/* ============ Loader ============ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--gutter);
+  background: var(--bg);
+  transition: transform 0.75s var(--ease-in-out);
+}
+.loader.is-leaving {
+  transform: translateY(-100%);
+}
+.loader__top {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.loader__count {
+  font-size: clamp(7rem, 30vw, 26rem);
+  line-height: 0.8;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+}
+.loader__bar {
+  height: 2px;
+  background: var(--line);
+}
+.loader__bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+}
+
+/* ============ Cursor ring ============ */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 250;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--fg);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: difference;
+  display: grid;
+  place-items: center;
+  transition:
+    width 0.35s var(--ease),
+    height 0.35s var(--ease),
+    background-color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    opacity 0.3s;
+  will-change: transform;
+}
+.cursor[data-visible='true'] {
+  opacity: 1;
+}
+.cursor[data-state='link'] {
+  width: 3.4rem;
+  height: 3.4rem;
+}
+.cursor[data-state='label'] {
+  width: 5.2rem;
+  height: 5.2rem;
+  background: var(--fg);
+}
+.cursor__label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* ============ Navigation ============ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  transition:
+    transform 0.9s var(--ease),
+    background-color 0.4s,
+    border-color 0.4s;
+  border-bottom: 1px solid transparent;
+}
+.js .nav {
+  transform: translateY(-100%);
+}
+.js .nav.is-ready {
+  transform: none;
+}
+.nav.is-scrolled {
+  background: rgba(13, 13, 12, 0.78);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-color: var(--line);
+}
+/* backdrop-filter would make the nav the containing block of the fixed menu, so drop it while open */
+html.menu-open .nav,
+html.menu-open .nav.is-scrolled {
+  background: var(--bg);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.nav__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  height: var(--nav-h);
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: 1.15rem;
+}
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 1.05rem;
+  transition:
+    background-color 0.4s,
+    transform 0.5s var(--ease);
+}
+.brand:hover .brand__mark {
+  background: var(--accent);
+  transform: rotate(-8deg);
+}
+.brand__dot {
+  color: var(--accent);
+}
+
+.nav__links ul {
+  position: relative;
+  display: flex;
+  gap: 0.25rem;
+}
+.nav__links a {
+  display: block;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+.nav__links a:hover,
+.nav__links a[aria-current] {
+  color: var(--fg);
+}
+.nav__indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+  transition:
+    transform 0.55s var(--ease),
+    width 0.55s var(--ease),
+    opacity 0.3s;
+  pointer-events: none;
+}
+
+.nav__toggle {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--nav-h) + 2rem) var(--gutter) 2rem;
+  background: var(--bg);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.35s,
+    visibility 0s linear 0.35s;
+}
+.menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.35s;
+}
+.menu ol {
+  counter-reset: m;
+}
+.menu li {
+  border-bottom: 1px solid var(--line);
+  transform: translateY(18px);
+  opacity: 0;
+  transition:
+    transform 0.6s var(--ease) calc(var(--i) * 60ms + 80ms),
+    opacity 0.6s var(--ease) calc(var(--i) * 60ms + 80ms);
+}
+.menu.is-open li {
+  transform: none;
+  opacity: 1;
+}
+.menu li a {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  padding: 1.1rem 0;
+  font-size: clamp(2.2rem, 11vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.menu li a[aria-current] {
+  color: var(--accent);
+}
+.menu__num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.menu__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.menu__meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+  .nav__toggle {
+    display: grid;
+  }
+  .menu {
+    display: flex;
+  }
+}
+
+/* ============ Footer ============ */
+.footer {
+  border-top: 1px solid var(--line);
+  padding-block: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+.footer__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+  transition: color 0.3s;
+}
+.footer__top:hover {
+  color: var(--accent);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}

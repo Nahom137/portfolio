@@ -1,0 +1,33 @@
+/*
+  Design system: "Field Notes"
+  Swiss grid + editorial type, near-black paper, warm off-white ink, one signal-orange accent.
+  Inter Tight (display) · Instrument Serif italic (voice) · JetBrains Mono (annotations).
+*/
+:root {
+  --bg: #0d0d0c;
+  --bg-raised: #131312;
+  --surface: #181816;
+  --line: rgba(236, 232, 223, 0.13);
+  --line-strong: rgba(236, 232, 223, 0.3);
+
+  --fg: #ece8df;
+  --fg-dim: #b9b5aa;
+  --muted: #8f8b80;
+
+  --accent: #ff5b1f;
+  --accent-ink: #160804;
+
+  --font-display: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --max: 90rem;
+  --nav-h: 4.5rem;
+  --section-y: clamp(5.5rem, 12vw, 10.5rem);
+
+  color-scheme: dark;
+}
