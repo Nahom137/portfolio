@@ -22,7 +22,7 @@ export default function Projects({ reduced }) {
               not <span className="serif-accent">exercises.</span>
             </>,
           ]}
-          intro="Four products built around real-world problems: payroll, hospitality, education and opportunity."
+          intro="Three products built around real-world problems: payroll, hospitality and education."
         />
 
         <div className="proj-list">

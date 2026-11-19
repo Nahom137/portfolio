@@ -31,8 +31,8 @@ export default function About() {
             </Reveal>
             <Reveal as="p" delay={180}>
               I&rsquo;m drawn to products that exist because someone has a genuine problem: payroll that
-              is painful to run, hotels juggling rooms and housekeeping, students hunting for textbooks
-              and scholarships. I like starting there, then working out the simplest thing that actually
+              is painful to run, hotels juggling rooms and housekeeping, students hunting for textbooks.
+              I like starting there, then working out the simplest thing that actually
               solves it.
             </Reveal>
             <Reveal as="p" delay={260}>

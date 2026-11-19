@@ -106,19 +106,6 @@ export const projects = [
     repo: '',
     repoPrivate: true,
   },
-  {
-    id: 'scholarpath',
-    index: '04',
-    name: 'ScholarPath',
-    category: 'Education · Opportunity',
-    description:
-      'A platform designed to help students discover scholarship opportunities and access useful educational guidance.',
-    stack: ['React Native', 'Expo', 'Supabase'],
-    preview: 'scholarpath',
-    live: '',
-    repo: '',
-    repoPrivate: true,
-  },
 ]
 
 export const skillGroups = [
